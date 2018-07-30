@@ -1,0 +1,25 @@
+<section>
+  <h1> OMDB Movie API Search </h1>
+  <input type="text" [(ngModel)]="search.input">
+  <button (click)="search.searchShow()">Search</button>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="card-deck" *ngFor="let result of search.results">
+        <div class="card text-white bg-dark m-3" style="width: 18rem;">
+          <img *ngIf="result.Poster == 'N/A'" class="card-img-top" src="https://www.sunnxt.com/images/placeholders/placeholder_vertical.gif"
+            alt="Card image cap">
+          <img *ngIf="result.Poster != 'N/A'" class="card-img-top" src="{{result.Poster}}" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title"> {{ result.Title }} </h5>
+            <p class="card-text">Type: {{ result.Type }} </p>
+            <p class="card-text">Year: {{ result.Year }} </p>
+            <p class="card-text"> {{ result.Plot }} </p>
+            <a href="" class="btn btn-primary" (click)="movieInfo()">Movie Info</a>
+            <a href="" class="btn btn-danger ml-3" (click)="addFavorites()">Add to Favs</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>

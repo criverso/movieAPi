@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ApiProject": {
+    "appName": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/ApiProject",
+            "outputPath": "dist/appName",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -23,9 +23,14 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
-            "scripts": []
+            "scripts": [
+              "./node_modules/jquery/dist/jquery.min.js",
+              "./node_modules/popper.js/dist/umd/popper.min.js",
+              "./node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -50,18 +55,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "ApiProject:build"
+            "browserTarget": "appName:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "ApiProject:build:production"
+              "browserTarget": "appName:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "ApiProject:build"
+            "browserTarget": "appName:build"
           }
         },
         "test": {
@@ -95,7 +100,7 @@
         }
       }
     },
-    "ApiProject-e2e": {
+    "appName-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
@@ -103,11 +108,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "ApiProject:serve"
+            "devServerTarget": "appName:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "ApiProject:serve:production"
+              "devServerTarget": "appName:serve:production"
             }
           }
         },
@@ -123,5 +128,5 @@
       }
     }
   },
-  "defaultProject": "ApiProject"
+  "defaultProject": "appName"
 }
